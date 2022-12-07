@@ -13,23 +13,14 @@ nginx:
 haproxy:
     image: haproxy
     volumes:
-        - ./haproxy:/usr/local/etc/haproxy/ # ruta del archivo de configuración de haproxy
+        - ./haproxy_config:/usr/local/etc/haproxy/
     links:
         - apache
         - nginx
     ports:
-        - "8080:80"  # Conversión de puerto
+        - "8080:80"  
     expose:
-        - 80   # puerto expuesto haproxy
-haproxy-exporter:
-    image: quay.io/prometheus/haproxy-exporter
-    links: 
-        - haproxy
-    ports:
-        - "9101:9101"
-    command: --haproxy.scrape-uri="http://admin:chaF_ai!-0quim@haproxy:80/status;csv" 
-
-
+        - 80  
 node-exporter:
     image: prom/node-exporter:latest
     container_name: node-exporter
@@ -45,14 +36,19 @@ node-exporter:
       - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
     expose:
       - 9100
-
+haproxy-exporter:
+    image: quay.io/prometheus/haproxy-exporter
+    links: 
+        - haproxy
+    ports:
+        - "9101:9101"
+    command: --haproxy.scrape-uri="http://admin:chaF_ai!-0quim@haproxy:80/status;csv" 
 prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
     restart: unless-stopped
     volumes:
       - ./prometheus_config/prometheus.yml:/etc/prometheus/prometheus.yml
-      - ./prometheus_config/web.yml:/etc/prometheus/web.yml
       - prometheus_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -60,14 +56,13 @@ prometheus:
       - '--web.console.libraries=/etc/prometheus/console_libraries'
       - '--web.console.templates=/etc/prometheus/consoles'
       - '--web.enable-lifecycle'
-      - '--web.config.file=/etc/prometheus/web.yml'
     expose:
       - 9090
     ports:
-      - "9090:9090"
+    - "9090:9090"
     links: 
         - haproxy-exporter
-
+        - node-exporter
 grafana:
     image: grafana/grafana:latest
     ports:
@@ -76,5 +71,6 @@ grafana:
     links:
       - prometheus
     volumes:
-      - ./grafana-ds:/etc/grafana/provisioning/datasources
+      - ./grafana_config/datasources:/etc/grafana/provisioning/datasources
       - grafana-data:/var/lib/grafana
+      - ./grafana_config/plugins:/var/lib/grafana/plugins

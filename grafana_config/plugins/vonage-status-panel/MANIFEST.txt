@@ -1,0 +1,42 @@
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+{
+  "manifestVersion": "2.0.0",
+  "signatureType": "community",
+  "signedByOrg": "grafana",
+  "signedByOrgName": "Grafana Labs",
+  "plugin": "vonage-status-panel",
+  "version": "1.0.11",
+  "time": 1622741134693,
+  "keyId": "7e4d0c6a708866e7",
+  "files": {
+    "status_ctrl.js.map": "82d4c5d133983f1458d3757d3740d8576e47803bcda83b254aff87c531980d6f",
+    "css/status_panel.css": "c78e5ae4727968bb6ada8ad16efb630f2e45ee17af13c73197bc59623ba04572",
+    "css/status_panel.css.map": "7ce0e75ec1d5bfaf6f64d4b925c87b29a2c3a1a48dd979ea108b3fb8ebfc891b",
+    "module.html": "c38236d586df1fdbbe7a23a81f01b6022743bde06f26a8e11b94a3f41c6ce8db",
+    "status_ctrl.js": "936f8f28f728c6e23bc09ebb602297131aa9b85d918c838c64c87a0b0b12a7a6",
+    "editor.html": "6acc23bed5e545c46b458869f647c9b00209e688a7824ef5d2a0b18ecf6c5197",
+    "module.js.map": "2c64ce340d6ab8f395369b45fa3a76472dc939a2a5976a4c3ad9be513c9c81ff",
+    "plugin.json": "e8c0424929da035ee14aa02293064d2175fd0576b320d1526b2604d4d87ca9ea",
+    "README.md": "2623df76ed8e2a2df227412b189cc537dcafdb30f5de13d0307ca3264db4bb8e",
+    "img/warning.png": "69674523b08ef1007f1b1c28ebba43b335f908edb8af18b0bec04317953b93c2",
+    "img/ok.png": "b44277f70d1e675e0574de6400455fe41b89a8939abed7f7e72bf51509670c0f",
+    "img/environment_snapshot.png": "4146f86ca04c6ed35877d9d5415fb4ef721d46126fee1f5435636b281039f4cd",
+    "img/error.png": "261abcf4f3d00f8319eb806bb7ef72e571148c28edb3d6d47bf0a7d59273fa32",
+    "img/icon_status_panel.svg": "2e3b8c291d0ec34e483653d5a3404948332aebfef8e9b78c67bc5be9b9c2e794",
+    "img/icon_status_panel.png": "534c904e249c36ad51e20d4d4181407745d9f877e100aa24bfed88365d35ead6",
+    "module.js": "556190c0032a31b6cf206928e3496a82a7be220141f024b6c5542d13b3e17c25"
+  }
+}
+-----BEGIN PGP SIGNATURE-----
+Version: OpenPGP.js v4.10.1
+Comment: https://openpgpjs.org
+
+wqEEARMKAAYFAmC5EI4ACgkQfk0ManCIZudGCwIJAecIKNJoxpyfRyydtVQi
+1L+OdZv11u+d+Og86brkJkH/jZyLmKw22EapTvQb10XmFdY04Tc6IhmOOeYX
+XCvd9CiKAgdptgYlJFiuKqgJGX+gHO2DPYIhuK4C33u/6ITNPMiUTUveEQeT
+ahJmdotKcqKZ9gJFhI2ENeqFTVcyF8CCjEWnFA==
+=fCtk
+-----END PGP SIGNATURE-----
