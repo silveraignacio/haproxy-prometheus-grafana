@@ -27,7 +27,7 @@ haproxy-exporter:
         - haproxy
     ports:
         - "9101:9101"
-    command: --haproxy.scrape-uri="http://haproxy:80/status;csv" 
+    command: --haproxy.scrape-uri="http://admin:chaF_ai!-0quim@haproxy:80/status;csv" 
 
 
 node-exporter:
@@ -51,7 +51,8 @@ prometheus:
     container_name: prometheus
     restart: unless-stopped
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus_config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus_config/web.yml:/etc/prometheus/web.yml
       - prometheus_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -59,6 +60,7 @@ prometheus:
       - '--web.console.libraries=/etc/prometheus/console_libraries'
       - '--web.console.templates=/etc/prometheus/consoles'
       - '--web.enable-lifecycle'
+      - '--web.config.file=/etc/prometheus/web.yml'
     expose:
       - 9090
     ports:
