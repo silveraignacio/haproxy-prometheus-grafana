@@ -40,8 +40,10 @@ haproxy-exporter:
     image: quay.io/prometheus/haproxy-exporter
     links: 
         - haproxy
-    ports:
-        - "9101:9101"
+    expose:
+        - 9101
+          #    ports:
+          #- "9101:9101"
     command: --haproxy.scrape-uri="http://admin:chaF_ai!-0quim@haproxy:80/status;csv" 
 prometheus:
     image: prom/prometheus:latest
